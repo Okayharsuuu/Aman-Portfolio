@@ -72,8 +72,8 @@ img{display:block;max-width:100%}
 /* latest-project highlight */
 .highlight{margin-top:56px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);width:100%;text-align:left;border:1px solid rgba(90,169,255,.32);border-radius:22px;overflow:hidden;background:rgba(17,24,36,.88);transition:border-color .25s,transform .3s var(--ease)}
 .highlight:hover{border-color:rgba(90,169,255,.7);transform:translateY(-2px)}
-.hl-pic{background:#0c121b;display:grid;place-items:center}
-.hl-pic img{width:100%;aspect-ratio:16/9;object-fit:contain}
+.hl-pic{background:#0c121b;overflow:hidden}
+.hl-pic img{width:100%;height:100%;min-height:260px;object-fit:cover;object-position:center 40%}
 .hl-body{padding:28px 30px;display:flex;flex-direction:column;justify-content:center}
 .hl-kicker{display:inline-flex;align-items:center;gap:8px;color:var(--mint);font-size:14px;font-weight:600}
 .hl-kicker:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 8px var(--mint)}
@@ -127,7 +127,7 @@ section.block{padding:110px 0 20px}
 .when{color:var(--faint);white-space:nowrap}
 .proj.big{grid-column:1/-1;display:grid;grid-template-columns:1.15fr 1fr}
 .proj.big .pic{aspect-ratio:auto;min-height:340px;display:grid;place-items:center}
-.proj.big .pic img{object-fit:contain;height:auto;aspect-ratio:16/9}
+.proj.big .pic img{object-fit:cover;height:100%;object-position:center 40%}
 .proj.big .body{padding:30px 32px}
 .proj.big h3{font-size:clamp(28px,3vw,38px)}
 .proj.big p{font-size:16.5px}
@@ -311,7 +311,7 @@ section.block{padding-top:120px}
 
 
     <button class="highlight" data-key="aerosense" aria-label="Open AeroSense VR Drone">
-      <div class="hl-pic"><img src="assets/covers/aerosense.svg" alt=""></div>
+      <div class="hl-pic"><img src="assets/aerosense/drone.jpg" alt="The AeroSense drone with its gimbal camera, next to a Meta Quest 3 headset"></div>
       <div class="hl-body">
         <span class="hl-kicker">Latest project</span>
         <h2>AeroSense VR Drone</h2>
@@ -410,7 +410,7 @@ const PROJECTS=[
  title:'AeroSense VR Drone',
  line:'Shows a drone operator where people are, even behind a wall. Look through the drone\'s camera by turning your head, or stay in your own room and see every detected person outlined where they really stand.',
  role:'Hardware, CAD and hardware-software integration, and a hand in everything else',
- when:'Oct 2026',team:'4',img:'assets/covers/aerosense.svg',imgAlt:'Drawing of the Quest 3 headset linked to the drone\'s gimbal camera',
+ when:'Oct 2026',team:'4',img:'assets/aerosense/drone.jpg',imgAlt:'The AeroSense drone with its gimbal camera, next to a Meta Quest 3 headset',
  tags:['Meta Quest 3','NVIDIA Jetson','YOLOv8','SAM2','MiDaS','Unity','SIYI A8 mini','GStreamer','ArduPilot'],
  stats:[['4','person team'],['22 ms','head turn to gimbal command'],['3','AI models running on one Jetson'],['2','ways to look: camera or passthrough']],
  problem:'Someone checking a building or an area behind cover needs to know one thing first: where are the people? A drone can get a camera there, but a flat video on a screen still leaves the operator working out direction and distance in their head. We wanted the drone\'s view to feel like your own eyes, and every person it finds to show up in your own space, at the right direction and distance.',
@@ -424,7 +424,7 @@ const PROJECTS=[
   ['Putting people in your room','Each outline point becomes a ray from the camera using its field of view and the gimbal angles, pushed out to the measured distance. The marker faces you and drops a line to the ground, even when a wall hides the person.'],
   ['Head tracking that doesn\'t lag','Going through a relay pushed delay past 600 ms. A direct local link, plus turning off Wi-Fi power saving, brought it to a steady 22 ms.'],
   ['A camera mounted upside down','Both gimbal axes moved the wrong way and the picture was inverted. Per-axis sign settings and a rotated stream fixed it without rebuilding the app.']],
- media:[['slot','The drone with the gimbal camera'],['slot','Camera mode inside the headset'],['slot','Passthrough with people outlined'],['video','Demo video']],
+ media:[['assets/aerosense/drone.jpg','The drone with its gimbal camera and the Quest 3'],['assets/covers/aerosense.svg','How the headset, Jetson and camera connect'],['slot','Camera mode inside the headset'],['slot','Passthrough with people outlined'],['video','Demo video']],
  links:[['Code on GitHub','https://github.com/Okayharsuuu/aerosense_vr_drone']]},
 
 {key:'amr',f:'mobile',area:'Mobile robots',
